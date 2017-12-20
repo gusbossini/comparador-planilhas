@@ -28,8 +28,7 @@ public class HomeController {
     private Comparador comparador;
 
     @GetMapping
-    public String index(Model model) {
-//        model.addAttribute("teste", listaTeste);
+    public String index() {
         return "index";
     }
 
