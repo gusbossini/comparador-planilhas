@@ -19,8 +19,6 @@ mvn clean install
 ### Executando o projeto via Docker Compose
 ```
 docker-compose build
-```
-```
 docker-compose up -d
 ```
 
