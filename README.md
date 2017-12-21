@@ -11,9 +11,9 @@ Projeto desenvolvido para comparar duas planilhas e apontar diferenças nas cél
 Necessário ter instalado em sua máquina o [Maven](https://maven.apache.org/download.cgi), [Docker](https://www.docker.com/get-docker) e [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Fazendo build
-Após clonar o projeto para sua máquina, acessar o diretório:
+Após clonar o projeto para sua máquina, executar o comando:
 ```
-/comparador-planilhas/src/main/resources
+mvn clean install
 ```
 
 ### Executando o projeto via Docker Compose
