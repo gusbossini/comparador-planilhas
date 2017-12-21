@@ -1,17 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="fragments/header :: head" />
+<head th:include="fragments/header :: head"/>
 <body>
+<div class="container">
+    <div class="jumbotron">
 
-    <h1>Upload planilhas</h1>
+        <h2 class="display-3">Comparador de Planilhas</h2>
 
-    <form method="POST" action="/" enctype="multipart/form-data">
-        <p>Primeira planilha:</p>
-        <input type="file" name="file1" /><br/><br/>
-        <p>Segunda planilha:</p>
-        <input type="file" name="file2" /><br/><br/>
-        <input type="submit" value="Comparar" />
-    </form>
+        <br/>
 
+        <form method="POST" action="/" enctype="multipart/form-data">
+            <p>Primeira planilha:</p>
+            <input type="file" name="file1"/><br/><br/>
+            <p>Segunda planilha:</p>
+            <input type="file" name="file2"/><br/><br/>
+            <input type="submit" value="Comparar »" class="btn btn-primary btn-lg"/>
+        </form>
+
+    </div>
+</div>
+<footer th:include="fragments/footer :: footer"/>
 </body>
 </html>

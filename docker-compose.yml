@@ -1,9 +1,10 @@
 version: '3'
 services:
   comparador-planilhas:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: bossini/comparador-planilhas
     container_name: comparador-planilhas
-    volumes:
-      - /tmp
     ports:
      - 8080:8080

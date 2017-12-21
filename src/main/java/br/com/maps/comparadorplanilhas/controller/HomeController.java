@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/")
 public class HomeController {
 
     @Value("${upload.path}")
@@ -51,8 +53,6 @@ public class HomeController {
             String file2FullName = uploadPath + file2.getOriginalFilename();
             Path path2 = Paths.get(file2FullName);
             Files.write(path2, bytes2);
-
-            msg.add("Arquivos importados com sucesso.");
 
             // executa comparação e retorna msg de sucesso ou erro.
             msg.addAll(comparador.compare(file1FullName, file2FullName));

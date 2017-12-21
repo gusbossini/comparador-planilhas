@@ -21,10 +21,11 @@ import java.util.Scanner;
 @Component
 public class Comparador {
 
-    private static int erros = 0;
+    private int erros;
 
     public List<String> compare(String filePath1, String filePath2) {
         List<String> msg = new ArrayList<>();
+        erros = 0;
         try {
             //HSSF para .xls e XSSF para .xlsx
             Workbook workbook1;

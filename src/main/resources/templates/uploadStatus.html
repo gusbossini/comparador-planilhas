@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Planilhas</title>
-</head>
+<head th:include="fragments/header :: head"/>
 <body>
-    <h1>Upload status</h1>
+<div class="container">
+    <div class="jumbotron">
 
-    <div th:each="msg : ${message}">
-        <p th:text="${msg}" />
+        <h2>Resultado da Comparação</h2>
+
+        <br/>
+
+        <div th:each="msg : ${message}">
+            <p th:text="${msg}"/>
+        </div>
+
+        <br/>
+
+        <a th:href="@{/}" class="btn btn-primary btn-lg">« Voltar</a>
+
     </div>
-
-    <br/>
-
-    <form method="GET" action="/" >
-        <input type="submit" value="Voltar" />
-    </form>
+</div>
+<footer th:include="fragments/footer :: footer"/>
 </body>
 </html>
