@@ -21,19 +21,21 @@ public class Comparador {
 
     private int erros;
 
-    public List<String> compare(String filePath1, String filePath2) {
+    public List<String> compare(String filePath1, String filePath2) throws IOException {
         List<String> msg = new ArrayList<>();
         erros = 0;
+
+        Workbook workbook1 = null;
+		Workbook workbook2 = null;
+
         try {
             //HSSF para .xls e XSSF para .xlsx
-            Workbook workbook1;
             if (filePath1.contains(".xlsx")) {
                 workbook1 = new XSSFWorkbook(new FileInputStream(new File(filePath1)));
             } else {
                 workbook1 = new HSSFWorkbook(new FileInputStream(new File(filePath1)));
             }
 
-            Workbook workbook2;
             if (filePath2.contains(".xlsx")) {
                 workbook2 = new XSSFWorkbook(new FileInputStream(new File(filePath2)));
             } else {
@@ -46,16 +48,15 @@ public class Comparador {
             if (erros == 0) {
                 msg.add("As planilhas são idênticas.");
             }
-            workbook1.close();
-            workbook2.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } finally {
+			workbook1.close();
+			workbook2.close();
+		}
         return msg;
     }
 
     private Map<String, String> criaMapa(Workbook workbook) {
-        Map<String, String> mapa = new LinkedHashMap<String, String>();
+        Map<String, String> mapa = new LinkedHashMap<>();
         Sheet sheet = workbook.getSheetAt(0);
         Row row;
         Cell cell;

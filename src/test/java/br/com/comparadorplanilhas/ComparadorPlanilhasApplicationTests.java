@@ -1,4 +1,4 @@
-package br.com.maps.comparadorplanilhas;
+package br.com.comparadorplanilhas;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
